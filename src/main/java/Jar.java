@@ -8,17 +8,16 @@ import java.util.Random;
 @Getter
 @Setter
 public class Jar {
-    public static Vegetables[] vegetables = new Vegetables[Vegetables.SIZE];
-    public static PicklesName name;
-    public static List<String> list = new ArrayList<>();
+    public Vegetables[] vegetables = new Vegetables[Vegetables.SIZE];
+    public PicklesName name;
 
     public Jar(PicklesName name, Vegetables[] vegetables) {
-        Jar.name = name;
-        Jar.vegetables = vegetables;
+        this.name = name;
+        this.vegetables = vegetables;
     }
 
     public Jar(PicklesName name) {
-        Jar.name = name;
+        this.name = name;
     }
 
     public Jar() {
@@ -28,6 +27,7 @@ public class Jar {
      * Генерируем рандомные коллекции с овощами, чтобы затем помещать их в банки
      **/
     public static List<String> generateArrayVegetables() {
+        List<String> list = new ArrayList<>();
         for (int i = 0; i < new Random().nextInt(Vegetables.SIZE); i++) {
             list.add(Vegetables.randomVegetable().toString());
         }

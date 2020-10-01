@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-import java.util.stream.Collectors;
 
 @Getter
 @Setter
@@ -19,22 +18,25 @@ public class Vault {
      * Создание коллекции банок и солений к каждой банке
      **/
     public static Map<String, List<String>> generateArrayJars() {
-        allJars.put(PicklesName.randomPicklesName().toString(), Jar.generateArrayVegetables());
-        List<String> list1 = allJars.values().stream().flatMap(List::stream).collect(Collectors.toList());
-        for (int i = 0; i < list1.size(); i++) {
-            if ((i + 1) % 2 == 0) {
-                allJars.put(PicklesName.randomPicklesName().toString(), list1.subList(0, i));
-            } else {
-                allJars.put(PicklesName.randomPicklesName().toString(), list1.subList(0, i));
-            }
+        for (int i = 0; i < new Random().nextInt(PicklesName.SIZE) + 1; i++) {
+            allJars.put(PicklesName.randomPicklesName().toString(), Jar.generateArrayVegetables());
         }
+
+        /** List<String> list = allJars.values().stream().flatMap(List::stream).collect(Collectors.toList()); **/
+        /**for (int i = 0; i < list1.size(); i++) {
+         if ((i + 1) % 2 == 0) {
+         allJars.put(PicklesName.randomPicklesName().toString(), list1.subList(0, i));
+         } else {
+         allJars.put(PicklesName.randomPicklesName().toString(), list1.subList(0, i));
+         }
+         } **/
         return allJars;
     }
 
     /**
      * Взять банку по наклейке
      **/
-    public static String getJar(String name) throws Exception {
+    public static void getJar(String name) throws Exception {
         for (String i : allJars.keySet()) {
             if (allJars.containsKey(name)) {
                 if (r <= 2) {
@@ -50,7 +52,6 @@ public class Vault {
                 throw new Exception("Такое соленье отсутствует в погребе");
             }
         }
-        return allJars.toString();
     }
 
     /**
