@@ -49,7 +49,7 @@ public class Vault {
                     break;
                 }
             } else {
-                throw new Exception("Такое соленье отсутствует в погребе");
+                throw new Exception(name + " отсутствует в погребе и вы не можете его взять");
             }
         }
     }
@@ -65,7 +65,7 @@ public class Vault {
             allJars.put(picklesName, vegetables);
             System.out.println("Вы положили в погреб: " + copyAllJars);
         } else if (allJars.containsKey(picklesName)) {
-            System.out.println(copyAllJars + " уже есть в погребе, поместите, пожалуйста другую банку");
+            System.out.println(copyAllJars.keySet() + " уже есть в погребе, поместите, пожалуйста другую банку");
         }
     }
 
