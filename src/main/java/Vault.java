@@ -21,15 +21,6 @@ public class Vault {
         for (int i = 0; i < new Random().nextInt(PicklesName.SIZE) + 1; i++) {
             allJars.put(PicklesName.randomPicklesName().toString(), Jar.generateArrayVegetables());
         }
-
-        /** List<String> list = allJars.values().stream().flatMap(List::stream).collect(Collectors.toList()); **/
-        /**for (int i = 0; i < list1.size(); i++) {
-         if ((i + 1) % 2 == 0) {
-         allJars.put(PicklesName.randomPicklesName().toString(), list1.subList(0, i));
-         } else {
-         allJars.put(PicklesName.randomPicklesName().toString(), list1.subList(0, i));
-         }
-         } **/
         return allJars;
     }
 
